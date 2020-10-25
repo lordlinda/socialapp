@@ -1,0 +1,19 @@
+.container{
+    margin: auto;
+    width:80%;
+    object-fit:contain;
+    margin-top: 80px;
+}
+.nav__links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+
+}
+.nav__links > svg{
+    color:white
+}
+.MuiIconButton-label{
+}
+  
