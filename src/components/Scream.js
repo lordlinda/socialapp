@@ -67,13 +67,7 @@ function Scream(props) {
                         <div>
                             <LikeButton screamId={screamId} />
                         </div>
-                        <div>
-                            <Tooltip title='comments'>
-                                <IconButton tip="comments">
-                                    <ChatIcon color="primary" fontSize='small' />
-                                </IconButton>
-                            </Tooltip>
-                        </div>
+
                         <div>
                             <ScreamDialog
                                 screamId={screamId}

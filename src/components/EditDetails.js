@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import { editUserDetails } from '../redux/userActions'
 import { connect } from 'react-redux'
@@ -24,20 +24,14 @@ function EditDetails(props) {
         open: false
     })
     const { bio, website, location, open } = details
-    const { classes, user: credentials } = props;
+    const { classes, credentials } = props;
 
-    useEffect(() => {
-        setDetails({
-            ...details,
-            bio: credentials.bio ? credentials.bio : '',
-            website: credentials.website ? credentials.website : '',
-            location: credentials.location ? credentials.location : '',
-
-        })
-    }, [])
     const handleOpen = () => {
         setDetails({
             ...details,
+            bio: credentials.bio,
+            website: credentials.website,
+            location: credentials.location,
             open: !open
         })
     }
@@ -56,6 +50,7 @@ function EditDetails(props) {
         props.editUserDetails(userDetails);
         handleOpen()
     };
+
     return (
         <Fragment>
             <Tooltip title='Edit Details' placement='top'>
@@ -117,7 +112,8 @@ function EditDetails(props) {
     )
 }
 const mapStateToProps = (state) => ({
-    user: state.user
+    credentials: state.user.credentials
+
 })
 
 export default connect(mapStateToProps, { editUserDetails })(withStyles(styles)(EditDetails))

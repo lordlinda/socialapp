@@ -21,7 +21,9 @@ import ProfileSkeleton from './ProfileSkeleton';
 
 const styles = {
     paper: {
-        padding: 20
+        padding: 20,
+        objectFit: 'contain',
+
     },
 
 
@@ -38,12 +40,13 @@ const styles = {
         },
         '& a': {
             color: '#00bcd4'
-        }
+        },
+
     },
     flexBox: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
 
     }
 
@@ -133,7 +136,7 @@ const Profile = (props) => {
 
 
                                         {website && (
-                                            <div className={classes.flexBox}>
+                                            <div>
                                                 <LinkIcon color="primary" />
                                                 <a href={website} target="_blank" rel="noopener noreferrer">
                                                     {website}
