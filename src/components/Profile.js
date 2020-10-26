@@ -51,6 +51,7 @@ const styles = {
 }
 
 const Profile = (props) => {
+    console.log(props);
 
     const {
         classes,

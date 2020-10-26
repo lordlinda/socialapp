@@ -2,7 +2,7 @@ import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LIKE_SCREAM, UNLIKE_S
 
 const initialState = {
     authenticated: false,
-    credentials: {},
+    credentials: { handle: '' },
     likes: [],
     notifications: []
 }
@@ -16,7 +16,8 @@ export default function (state = initialState, action) {
             }
         case SET_UNAUTHENTICATED:
             return {
-                initialState
+
+                ...initialState
             }
         case SET_USER:
             return {

@@ -1,4 +1,4 @@
-import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, LOADING_USER, SET_AUTHENTICATED, MARK_NOTIFICATIONS_READ } from './types'
+import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, LOADING_USER, SET_AUTHENTICATED, MARK_NOTIFICATIONS_READ, SET_UNAUTHENTICATED } from './types'
 import axios from 'axios'
 export const loginUser = (userData, history) => dispatch => {
     dispatch({ type: LOADING_UI })
@@ -65,7 +65,7 @@ export const setAuthHeader = (token) => {
 export const logOut = () => dispatch => {
     localStorage.removeItem('token')
     delete axios.defaults.headers.common['Authorization']
-    dispatch({ type: SET_AUTHENTICATED })
+    dispatch({ type: SET_UNAUTHENTICATED })
 }
 
 export const editUserDetails = (userDetails) => (dispatch) => {

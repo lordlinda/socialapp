@@ -61,11 +61,11 @@ if (localStorage.token) {
   const decodedToken = jwtDecode(localStorage.token)
   if (decodedToken.exp * 1000 < Date.now()) {
     store.dispatch(logOut())
+    window.location.href = '/login';
 
   } else {
     store.dispatch({ type: SET_AUTHENTICATED })
     axios.defaults.headers.common['Authorization'] = localStorage.token
-
     store.dispatch(getUserData())
   }
 }
